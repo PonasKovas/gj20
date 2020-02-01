@@ -83,4 +83,4 @@ func rotate_tires(power):
 	for attached_obj in attached_objects:
 		if attached_obj.type == 0: # tire
 			var wheel = attached_obj.get_node("wheel")
-			wheel.angular_velocity += (power-wheel.angular_velocity)/100
+			wheel.angular_velocity += (power-wheel.angular_velocity)/(200*wheel.mass)

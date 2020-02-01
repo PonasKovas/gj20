@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://remas.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objects/garbage.tscn" type="PackedScene" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://objects/tire3.tscn" type="PackedScene" id=5]
 [ext_resource path="res://objects/engine.tscn" type="PackedScene" id=6]
 [ext_resource path="res://objects/tire4.tscn" type="PackedScene" id=7]
-[ext_resource path="res://objects/tire5.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2048, 256 )
@@ -47,11 +46,11 @@ region_rect = Rect2( 0, 0, 4096, 512 )
 position = Vector2( 9.34291, 135.243 )
 
 [node name="garbage" parent="." instance=ExtResource( 2 )]
-position = Vector2( 68.4756, 167.278 )
+position = Vector2( 43.3884, 169.479 )
 remas_path = NodePath("../remas")
 
 [node name="tire" parent="." instance=ExtResource( 3 )]
-position = Vector2( -34.9234, 164.581 )
+position = Vector2( -20.3992, 166.342 )
 rotation = 3.14159
 remas_path = NodePath("../remas")
 
@@ -60,14 +59,11 @@ position = Vector2( 6.18306, 126.963 )
 rotation = 1.5708
 
 [node name="engine2" parent="." instance=ExtResource( 6 )]
-position = Vector2( -233.282, 147.44 )
+position = Vector2( 8.01822, 65.7396 )
 rotation = 0.785398
 
 [node name="tire2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 143.886, 132.797 )
-
-[node name="tire5" parent="." instance=ExtResource( 8 )]
-position = Vector2( 0.000274658, 98.0001 )
 
 [node name="tire4" parent="." instance=ExtResource( 7 )]
 position = Vector2( 112, 26.0001 )

@@ -37,7 +37,7 @@ softness = 8.0
 
 [node name="wheel" type="RigidBody2D" parent="."]
 collision_layer = 4
-mass = 0.15
+mass = 0.6
 physics_material_override = SubResource( 3 )
 __meta__ = {
 "_edit_group_": true
