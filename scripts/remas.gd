@@ -41,6 +41,7 @@ func attach_object():
 	joint.node_a = self.get_path()
 	joint.node_b = pulled_object.get_path()
 	joint.position = attach_point
+	joint.disable_collision = false
 	get_node("joints").add_child(joint)
 	attached_objects.push_back(pulled_object)
 	pulled_object = null

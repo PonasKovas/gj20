@@ -38,12 +38,8 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 4096, 512 )
 
 [node name="remas" parent="." instance=ExtResource( 1 )]
-position = Vector2( 44.342, -654.663 )
+position = Vector2( 4.24672, -213.615 )
 
 [node name="garbage" parent="." instance=ExtResource( 2 )]
 position = Vector2( 97.0996, 150.535 )
-remas_path = NodePath("../remas")
-
-[node name="garbage2" parent="." instance=ExtResource( 2 )]
-position = Vector2( -144.438, 20.7538 )
 remas_path = NodePath("../remas")

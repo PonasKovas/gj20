@@ -25,7 +25,10 @@ func _process(delta):
 	if pullable:
 		if Input.is_action_just_pressed("mouseclick") and mouse_hovering:
 			if remas.pulled_object == self:
+				self.applied_force = Vector2(0,0)
 				remas.pulled_object = null
 			else:
+				if remas.pulled_object != null:
+					remas.pulled_object.applied_force = Vector2(0,0)
 				remas.pulled_object = self
 
