@@ -43,3 +43,7 @@ position = Vector2( 44.342, -654.663 )
 [node name="garbage" parent="." instance=ExtResource( 2 )]
 position = Vector2( 97.0996, 150.535 )
 remas_path = NodePath("../remas")
+
+[node name="garbage2" parent="." instance=ExtResource( 2 )]
+position = Vector2( -144.438, 20.7538 )
+remas_path = NodePath("../remas")
