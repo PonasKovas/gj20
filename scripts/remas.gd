@@ -22,22 +22,42 @@ func _process(delta):
 		self.applied_force = -direction* (force/self.mass)
 		pulled_object.applied_force = direction* (force/pulled_object.mass)
 		
-		# check if touching with the pulled object
+		var touching = false
+		# check if the pulled object touches me
 		for obj in get_colliding_bodies():
 			if obj == pulled_object:
-				attach_object()
+				touching = true
 				break
+		# ... or any of my attached objects
+		if not touching:
+			for attached_obj in attached_objects:
+				for obj in attached_obj.get_colliding_bodies():
+					if obj == pulled_object:
+						touching = true
+						break
+		if touching:
+			attach_object()
 	
-	if Input.is_action_just_pressed("ui_up"):
-		self.linear_velocity += Vector2(1000*delta, -10000*delta)
+	if Input.is_action_pressed("ui_right"):
+		self.linear_velocity += Vector2(1000*delta, 0)
+	elif Input.is_action_pressed("ui_left"):
+		self.linear_velocity += Vector2(-1000*delta, 0)
 
 func attach_object():
 	pulled_object.applied_force = Vector2(0,0)
+	# manage collision stuff
+	pulled_object.collision_layer = 2 # 2nd layer
+	pulled_object.collision_mask = 3 # 1st and 2nd layers
+	if pulled_object.type == 0: # tire
+		var wheel = pulled_object.get_node("wheel")
+		wheel.collision_layer = 4 # 3rd layer
+		wheel.collision_mask = 1 # 1st layer
+	
 	pulled_object.pullable = false
 	var attach_point = pulled_object.position
 	
 	var joint = PinJoint2D.new()
-	joint.softness = 8
+	joint.softness = 0
 	joint.node_a = self.get_path()
 	joint.node_b = pulled_object.get_path()
 	joint.position = attach_point
