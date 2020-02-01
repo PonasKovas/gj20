@@ -1,41 +1,41 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://assets/block_3_32.png" type="Texture" id=1]
+[ext_resource path="res://assets/block_12_64_32.png" type="Texture" id=1]
 [ext_resource path="res://scripts/PullableObject.gd" type="Script" id=2]
-[ext_resource path="res://assets/wheel_32.png" type="Texture" id=3]
+[ext_resource path="res://assets/wheel_64.png" type="Texture" id=3]
 
-[sub_resource type="PhysicsMaterial" id=2]
+[sub_resource type="PhysicsMaterial" id=1]
 friction = 0.1
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 32, 16 )
 
 [sub_resource type="PhysicsMaterial" id=3]
 rough = true
 
-[sub_resource type="CircleShape2D" id=1]
-radius = 16.0
+[sub_resource type="CircleShape2D" id=4]
+radius = 32.0
 
 [node name="tire" type="RigidBody2D"]
 input_pickable = true
 mass = 0.2
-physics_material_override = SubResource( 2 )
+physics_material_override = SubResource( 1 )
 contacts_reported = 20
 contact_monitor = true
 script = ExtResource( 2 )
-anchor_position = Vector2( 0, 10 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( -13.422, 14.5504, -13.2126, 8.79333, -8.60696, 5.02505, -4.8921, -0.0353146, 5.06063, -0.0412922, 8.87363, 4.8157, 13.4793, 9.00267, 13.584, 14.1317 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 
 [node name="PinJoint2D" type="PinJoint2D" parent="."]
-position = Vector2( 0, -8 )
 node_a = NodePath("..")
 node_b = NodePath("../wheel")
 softness = 8.0
 
 [node name="wheel" type="RigidBody2D" parent="."]
-position = Vector2( 0, -8 )
 collision_layer = 4
 mass = 0.15
 physics_material_override = SubResource( 3 )
@@ -44,7 +44,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="wheel"]
-shape = SubResource( 1 )
+shape = SubResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="wheel"]
 texture = ExtResource( 3 )

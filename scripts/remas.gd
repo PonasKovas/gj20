@@ -57,13 +57,6 @@ func _process(delta):
 func attach_object():
 	pulled_object.applied_force = Vector2(0,0)
 	self.applied_force = Vector2(0,0)
-	# manage collision stuff
-	pulled_object.collision_layer = 2 # 2nd layer
-	pulled_object.collision_mask = 3 # 1st and 2nd layers
-	if pulled_object.type == 0: # tire
-		var wheel = pulled_object.get_node("wheel")
-		wheel.collision_layer = 4 # 3rd layer
-		wheel.collision_mask = 1 # 1st layer
 	
 	pulled_object.pullable = false
 	var attach_point = pulled_object.position
@@ -89,4 +82,5 @@ func calc_engine_power():
 func rotate_tires(power):
 	for attached_obj in attached_objects:
 		if attached_obj.type == 0: # tire
-			attached_obj.get_node("wheel").applied_torque = power
+			var wheel = attached_obj.get_node("wheel")
+			wheel.angular_velocity += (power-wheel.angular_velocity)/100

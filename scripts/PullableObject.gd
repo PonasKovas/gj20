@@ -27,11 +27,18 @@ func _process(delta):
 	if pullable:
 		if Input.is_action_just_pressed("mouseclick") and mouse_hovering:
 			if remas.pulled_object == self:
+				self.collision_layer = 1 # 1st layer
+				self.collision_mask = 1 # 1st layer
 				remas.pulled_object = null
 				self.applied_force = Vector2(0,0)
 				remas.applied_force = Vector2(0,0)
 			else:
 				if remas.pulled_object != null:
+					remas.pulled_object.collision_layer = 1 # 1st layer
+					remas.pulled_object.collision_mask = 1 # 1st layer
 					remas.pulled_object.applied_force = Vector2(0,0)
 				remas.pulled_object = self
+
+				self.collision_layer = 2 # 2nd layer
+				self.collision_mask = 3 # 1st and 2nd layers
 
