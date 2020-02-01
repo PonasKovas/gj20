@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/block_3_32.png" type="Texture" id=1]
 [ext_resource path="res://scripts/PullableObject.gd" type="Script" id=2]
 [ext_resource path="res://assets/wheel_32.png" type="Texture" id=3]
 
 [sub_resource type="PhysicsMaterial" id=2]
+friction = 0.1
+
+[sub_resource type="PhysicsMaterial" id=3]
 rough = true
 
 [sub_resource type="CircleShape2D" id=1]
@@ -13,6 +16,7 @@ radius = 16.0
 [node name="tire" type="RigidBody2D"]
 input_pickable = true
 mass = 0.2
+physics_material_override = SubResource( 2 )
 contacts_reported = 20
 contact_monitor = true
 script = ExtResource( 2 )
@@ -33,7 +37,7 @@ softness = 8.0
 [node name="wheel" type="RigidBody2D" parent="."]
 position = Vector2( 0, -8 )
 mass = 0.15
-physics_material_override = SubResource( 2 )
+physics_material_override = SubResource( 3 )
 __meta__ = {
 "_edit_group_": true
 }

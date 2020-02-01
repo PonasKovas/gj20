@@ -43,7 +43,7 @@ region_rect = Rect2( 0, 0, 4096, 512 )
 position = Vector2( 9.34291, 135.243 )
 
 [node name="garbage" parent="." instance=ExtResource( 2 )]
-position = Vector2( 137.869, 164.434 )
+position = Vector2( 68.4756, 167.278 )
 remas_path = NodePath("../remas")
 
 [node name="tire" parent="." instance=ExtResource( 3 )]
@@ -52,10 +52,14 @@ rotation = 3.14159
 remas_path = NodePath("../remas")
 
 [node name="tire2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 56.762, 167.554 )
+position = Vector2( 136.963, 117.499 )
 rotation = 3.14159
 remas_path = NodePath("../remas")
 
 [node name="engine" parent="." instance=ExtResource( 4 )]
 position = Vector2( 6.18306, 126.963 )
 rotation = 1.5708
+
+[node name="engine2" parent="." instance=ExtResource( 4 )]
+position = Vector2( -233.282, 147.44 )
+rotation = 0.785398
