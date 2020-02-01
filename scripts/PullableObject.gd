@@ -24,9 +24,12 @@ func _ready():
 	get_node("Sprite").material = glow_material.duplicate();
 
 func _mouse_entered():
+	if pullable:
+		Input.set_default_cursor_shape(2)
 	mouse_hovering = true
 
 func _mouse_exited():
+	Input.set_default_cursor_shape(0)
 	mouse_hovering = false
 
 func _process(delta):

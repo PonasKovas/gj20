@@ -40,6 +40,8 @@ position = Vector2( -0.463294, 31.5038 )
 texture = ExtResource( 2 )
 
 [node name="GUN" type="AnimatedSprite" parent="."]
+z_index = 99
+z_as_relative = false
 frames = SubResource( 1 )
 animation = "Idle"
 offset = Vector2( 20, 0 )
