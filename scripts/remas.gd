@@ -56,6 +56,7 @@ func _process(delta):
 
 func attach_object():
 	pulled_object.applied_force = Vector2(0,0)
+	self.applied_force = Vector2(0,0)
 	# manage collision stuff
 	pulled_object.collision_layer = 2 # 2nd layer
 	pulled_object.collision_mask = 3 # 1st and 2nd layers

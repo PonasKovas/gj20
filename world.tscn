@@ -47,12 +47,12 @@ position = Vector2( 137.869, 164.434 )
 remas_path = NodePath("../remas")
 
 [node name="tire" parent="." instance=ExtResource( 3 )]
-position = Vector2( -4.81059, 163.506 )
+position = Vector2( -34.9234, 164.581 )
 rotation = 3.14159
 remas_path = NodePath("../remas")
 
 [node name="tire2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 28.0831, 163.969 )
+position = Vector2( 56.762, 167.554 )
 rotation = 3.14159
 remas_path = NodePath("../remas")
 
