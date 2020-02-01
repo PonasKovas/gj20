@@ -3,7 +3,9 @@ extends RigidBody2D
 enum TYPE { tire,engine,garbage }
 
 export(NodePath) var remas_path = "/root/world/remas"
+export(Vector2) var anchor_position
 export(TYPE) var type
+export(float) var engine_power
 onready var remas = get_node(remas_path)
 
 var mouse_hovering = false

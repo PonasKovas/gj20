@@ -8,7 +8,11 @@ var attached_objects = []
 
 func _process(delta):
 	# if moving fast zoom out camera
-	var zoom = 0.4 + sqrt(self.linear_velocity.length())/10
+	var moving = self.linear_velocity.length()
+	if moving < 5:
+		moving = 0
+	
+	var zoom = 0.4 + sqrt(moving)/50
 	
 	# make it more smooth
 	var current_zoom = camera.zoom.x
@@ -39,9 +43,16 @@ func _process(delta):
 			attach_object()
 	
 	if Input.is_action_pressed("ui_right"):
-		self.linear_velocity += Vector2(1000*delta, 0)
+		var power = calc_engine_power()
+		rotate_tires(power)
+		self.applied_torque = 1000;
 	elif Input.is_action_pressed("ui_left"):
-		self.linear_velocity += Vector2(-1000*delta, 0)
+		var power = calc_engine_power()
+		rotate_tires(-power)
+		self.applied_torque = -1000;
+	else:
+		rotate_tires(0)
+		self.applied_torque = 0;
 
 func attach_object():
 	pulled_object.applied_force = Vector2(0,0)
@@ -60,8 +71,21 @@ func attach_object():
 	joint.softness = 0
 	joint.node_a = self.get_path()
 	joint.node_b = pulled_object.get_path()
-	joint.position = attach_point
+	joint.position = attach_point + \
+		pulled_object.anchor_position.rotated(pulled_object.rotation)
 	joint.disable_collision = false
 	get_node("joints").add_child(joint)
 	attached_objects.push_back(pulled_object)
 	pulled_object = null
+
+func calc_engine_power():
+	var power = 0
+	for attached_obj in attached_objects:
+		if attached_obj.type == 1: # engine
+			power += attached_obj.engine_power
+	return power
+
+func rotate_tires(power):
+	for attached_obj in attached_objects:
+		if attached_obj.type == 0: # tire
+			attached_obj.get_node("wheel").applied_torque = power
