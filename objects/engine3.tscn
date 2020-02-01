@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/block_6_64_32.png" type="Texture" id=1]
+[ext_resource path="res://scripts/PullableObject.gd" type="Script" id=2]
+
+[sub_resource type="PhysicsMaterial" id=1]
+friction = 0.1
+
+[node name="engine3" type="RigidBody2D"]
+input_pickable = true
+mass = 0.2
+physics_material_override = SubResource( 1 )
+contacts_reported = 20
+contact_monitor = true
+script = ExtResource( 2 )
+type = 1
+engine_power = 5.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -31.7232, 15.8268, -30.5705, -15.5006, 13.7701, -15.6587, 16.8544, -12.7029, 16.9829, -7.4339, 20.3243, -5.63473, 31.3274, -5.36737, 31.8904, 15.9553 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
