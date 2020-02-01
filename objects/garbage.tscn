@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://assets/block_1_32.png" type="Texture" id=1]
+[ext_resource path="res://assets/block_2_32.png" type="Texture" id=1]
 [ext_resource path="res://scripts/PullableObject.gd" type="Script" id=2]
 
 [sub_resource type="PhysicsMaterial" id=2]
