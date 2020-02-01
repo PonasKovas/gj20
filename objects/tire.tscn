@@ -10,7 +10,7 @@ friction = 0.1
 [sub_resource type="PhysicsMaterial" id=3]
 rough = true
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=4]
 radius = 16.0
 
 [node name="tire" type="RigidBody2D"]
@@ -44,7 +44,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="wheel"]
-shape = SubResource( 1 )
+shape = SubResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="wheel"]
 texture = ExtResource( 3 )
