@@ -1,0 +1,13 @@
+[remap]
+
+importer="image"
+type="Image"
+path="res://.import/ground.png-19dd19062ae149a099889071e7b87881.image"
+
+[deps]
+
+source_file="res://ground.png"
+dest_files=[ "res://.import/ground.png-19dd19062ae149a099889071e7b87881.image" ]
+
+[params]
+

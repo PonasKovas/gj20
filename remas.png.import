@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/whel_64.png-2d2d146c052569c979ff8fbde8b29062.stex"
+path="res://.import/remas.png-d7dc8e0acb5700a852f3f9acf43a85fa.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/whel_64.png"
-dest_files=[ "res://.import/whel_64.png-2d2d146c052569c979ff8fbde8b29062.stex" ]
+source_file="res://remas.png"
+dest_files=[ "res://.import/remas.png-d7dc8e0acb5700a852f3f9acf43a85fa.stex" ]
 
 [params]
 
