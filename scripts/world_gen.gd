@@ -51,6 +51,4 @@ func add_segment():
 	
 	ground_polygon.polygon = pool_with_bottom
 	ground_collision_polygon.polygon = pool_with_bottom
-	
-	print(len(pool))
 
