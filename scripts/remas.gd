@@ -6,6 +6,13 @@ var pulled_object: RigidBody2D
 
 var attached_objects = []
 
+var sound_effects = [
+	preload("res://sounds/Frying Pan Hit-SoundBible.com-2141771342.wav"),
+	preload("res://sounds/Frying Pan Impact-SoundBible.com-786709826.wav"),
+	preload("res://sounds/Metal Bang-SoundBible.com-672025076.wav"),
+	preload("res://sounds/Metal Clang-SoundBible.com-19572601.wav")
+]
+
 func _process(delta):
 	# if moving fast zoom out camera
 	var moving = self.linear_velocity.length()
@@ -55,8 +62,16 @@ func _process(delta):
 	else:
 		rotate_tires(0)
 		self.applied_torque = 0;
+	if Input.is_action_just_pressed("restart"):
+		# reload game
+		get_tree().reload_current_scene()
 
 func attach_object(other_object):
+	# play sound
+	randomize()
+	$AudioStreamPlayer.stream = sound_effects[randi()%len(sound_effects)]
+	$AudioStreamPlayer.play()
+	
 	pulled_object.applied_force = Vector2(0,0)
 	pulled_object.z_index = 98
 	self.applied_force = Vector2(0,0)
