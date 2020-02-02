@@ -1,0 +1,13 @@
+[remap]
+
+importer="image"
+type="Image"
+path="res://.import/background1.png-b4e0afdd1811f2bdfea79147e460c19b.image"
+
+[deps]
+
+source_file="res://assets/parallax_bg/background1.png"
+dest_files=[ "res://.import/background1.png-b4e0afdd1811f2bdfea79147e460c19b.image" ]
+
+[params]
+

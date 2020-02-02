@@ -27,6 +27,7 @@ func _process(delta):
 		pulled_object.applied_force = direction* (force/pulled_object.mass)
 		
 		var touching = false
+		var touching_obj = self
 		# check if the pulled object touches me
 		for obj in get_colliding_bodies():
 			if obj == pulled_object:
@@ -38,9 +39,10 @@ func _process(delta):
 				for obj in attached_obj.get_colliding_bodies():
 					if obj == pulled_object:
 						touching = true
+						touching_obj = attached_obj
 						break
 		if touching:
-			attach_object()
+			attach_object(touching_obj)
 	
 	if Input.is_action_pressed("ui_right"):
 		var power = calc_engine_power()
@@ -54,8 +56,9 @@ func _process(delta):
 		rotate_tires(0)
 		self.applied_torque = 0;
 
-func attach_object():
+func attach_object(other_object):
 	pulled_object.applied_force = Vector2(0,0)
+	pulled_object.z_index = 98
 	self.applied_force = Vector2(0,0)
 	
 	pulled_object.pullable = false
@@ -63,7 +66,7 @@ func attach_object():
 	
 	var joint = PinJoint2D.new()
 	joint.softness = 0
-	joint.node_a = self.get_path()
+	joint.node_a = other_object.get_path()
 	joint.node_b = pulled_object.get_path()
 	joint.position = attach_point + \
 		pulled_object.anchor_position.rotated(pulled_object.rotation)

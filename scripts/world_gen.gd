@@ -1,5 +1,149 @@
 extends Node2D
 
+var objects = [
+	preload("res://objects/engine.tscn"),
+	preload("res://objects/engine2.tscn"),
+	preload("res://objects/engine2.tscn"),
+	preload("res://objects/engine3.tscn"),
+	preload("res://objects/engine3.tscn"),
+	preload("res://objects/engine3.tscn"),
+	preload("res://objects/engine3.tscn"),
+	preload("res://objects/engine4.tscn"),
+	preload("res://objects/engine4.tscn"),
+	preload("res://objects/engine4.tscn"),
+	preload("res://objects/engine4.tscn"),
+	preload("res://objects/garbage.tscn"),
+	preload("res://objects/garbage.tscn"),
+	preload("res://objects/garbage.tscn"),
+	preload("res://objects/garbage.tscn"),
+	preload("res://objects/garbage.tscn"),
+	preload("res://objects/garbage.tscn"),
+	preload("res://objects/garbage.tscn"),
+	preload("res://objects/garbage.tscn"),
+	preload("res://objects/garbage.tscn"),
+	preload("res://objects/garbage.tscn"),
+	preload("res://objects/garbage.tscn"),
+	preload("res://objects/garbage.tscn"),
+	preload("res://objects/garbage.tscn"),
+	preload("res://objects/garbage.tscn"),
+	preload("res://objects/garbage.tscn"),
+	preload("res://objects/garbage.tscn"),
+	preload("res://objects/garbage2.tscn"),
+	preload("res://objects/garbage2.tscn"),
+	preload("res://objects/garbage2.tscn"),
+	preload("res://objects/garbage2.tscn"),
+	preload("res://objects/garbage2.tscn"),
+	preload("res://objects/garbage2.tscn"),
+	preload("res://objects/garbage2.tscn"),
+	preload("res://objects/garbage2.tscn"),
+	preload("res://objects/garbage2.tscn"),
+	preload("res://objects/garbage2.tscn"),
+	preload("res://objects/garbage2.tscn"),
+	preload("res://objects/garbage2.tscn"),
+	preload("res://objects/garbage2.tscn"),
+	preload("res://objects/garbage2.tscn"),
+	preload("res://objects/garbage2.tscn"),
+	preload("res://objects/garbage2.tscn"),
+	preload("res://objects/garbage2.tscn"),
+	preload("res://objects/garbage3.tscn"),
+	preload("res://objects/garbage3.tscn"),
+	preload("res://objects/garbage3.tscn"),
+	preload("res://objects/garbage3.tscn"),
+	preload("res://objects/garbage3.tscn"),
+	preload("res://objects/garbage3.tscn"),
+	preload("res://objects/garbage3.tscn"),
+	preload("res://objects/garbage3.tscn"),
+	preload("res://objects/garbage3.tscn"),
+	preload("res://objects/garbage3.tscn"),
+	preload("res://objects/garbage3.tscn"),
+	preload("res://objects/garbage3.tscn"),
+	preload("res://objects/garbage3.tscn"),
+	preload("res://objects/garbage3.tscn"),
+	preload("res://objects/garbage3.tscn"),
+	preload("res://objects/garbage3.tscn"),
+	preload("res://objects/garbage4.tscn"),
+	preload("res://objects/garbage4.tscn"),
+	preload("res://objects/garbage4.tscn"),
+	preload("res://objects/garbage4.tscn"),
+	preload("res://objects/garbage4.tscn"),
+	preload("res://objects/garbage4.tscn"),
+	preload("res://objects/garbage4.tscn"),
+	preload("res://objects/garbage4.tscn"),
+	preload("res://objects/garbage4.tscn"),
+	preload("res://objects/garbage4.tscn"),
+	preload("res://objects/garbage4.tscn"),
+	preload("res://objects/garbage4.tscn"),
+	preload("res://objects/garbage4.tscn"),
+	preload("res://objects/garbage4.tscn"),
+	preload("res://objects/garbage4.tscn"),
+	preload("res://objects/garbage4.tscn"),
+	preload("res://objects/garbage4.tscn"),
+	preload("res://objects/garbage5.tscn"),
+	preload("res://objects/garbage5.tscn"),
+	preload("res://objects/garbage5.tscn"),
+	preload("res://objects/garbage5.tscn"),
+	preload("res://objects/garbage5.tscn"),
+	preload("res://objects/garbage5.tscn"),
+	preload("res://objects/garbage5.tscn"),
+	preload("res://objects/garbage5.tscn"),
+	preload("res://objects/garbage6.tscn"),
+	preload("res://objects/garbage6.tscn"),
+	preload("res://objects/garbage6.tscn"),
+	preload("res://objects/garbage6.tscn"),
+	preload("res://objects/garbage6.tscn"),
+	preload("res://objects/garbage6.tscn"),
+	preload("res://objects/garbage6.tscn"),
+	preload("res://objects/garbage6.tscn"),
+	preload("res://objects/garbage7.tscn"),
+	preload("res://objects/garbage7.tscn"),
+	preload("res://objects/garbage7.tscn"),
+	preload("res://objects/garbage7.tscn"),
+	preload("res://objects/garbage7.tscn"),
+	preload("res://objects/garbage7.tscn"),
+	preload("res://objects/garbage7.tscn"),
+	preload("res://objects/garbage7.tscn"),
+	preload("res://objects/garbage8.tscn"),
+	preload("res://objects/garbage8.tscn"),
+	preload("res://objects/garbage8.tscn"),
+	preload("res://objects/garbage8.tscn"),
+	preload("res://objects/garbage8.tscn"),
+	preload("res://objects/garbage8.tscn"),
+	preload("res://objects/garbage8.tscn"),
+	preload("res://objects/garbage8.tscn"),
+	preload("res://objects/garbage8.tscn"),
+	preload("res://objects/garbage8.tscn"),
+	preload("res://objects/garbage8.tscn"),
+	preload("res://objects/garbage8.tscn"),
+	preload("res://objects/garbage8.tscn"),
+	preload("res://objects/garbage8.tscn"),
+	preload("res://objects/garbage8.tscn"),
+	preload("res://objects/garbage8.tscn"),
+	preload("res://objects/garbage8.tscn"),
+	preload("res://objects/garbage9.tscn"),
+	preload("res://objects/garbage9.tscn"),
+	preload("res://objects/garbage9.tscn"),
+	preload("res://objects/garbage9.tscn"),
+	preload("res://objects/tire.tscn"),
+	preload("res://objects/tire.tscn"),
+	preload("res://objects/tire.tscn"),
+	preload("res://objects/tire.tscn"),
+	preload("res://objects/tire.tscn"),
+	preload("res://objects/tire.tscn"),
+	preload("res://objects/tire.tscn"),
+	preload("res://objects/tire.tscn"),
+	preload("res://objects/tire.tscn"),
+	preload("res://objects/tire2.tscn"),
+	preload("res://objects/tire2.tscn"),
+	preload("res://objects/tire2.tscn"),
+	preload("res://objects/tire2.tscn"),
+	preload("res://objects/tire3.tscn"),
+	preload("res://objects/tire4.tscn"),
+	preload("res://objects/tire4.tscn"),
+	preload("res://objects/tire4.tscn"),
+	preload("res://objects/tire4.tscn"),
+	preload("res://objects/tire5.tscn"),
+]
+
 var pool = PoolVector2Array([
 	Vector2(-1000, 200),
 	Vector2( 200, 200),
@@ -20,6 +164,10 @@ func _process(_delta):
 	# move the wall with the player
 	if (remas.position.x - wall.position.x) > 750.0:
 		wall.position.x = remas.position.x-750.0
+	# remove objects that are far away on the left from the player
+	for obj in $objects.get_children():
+		if remas.position.x - obj.position.x >= 650.0:
+			obj.queue_free()
 	
 	# generate landscape
 	var remo_pozicija = remas.position;
@@ -51,4 +199,16 @@ func add_segment():
 	
 	ground_polygon.polygon = pool_with_bottom
 	ground_collision_polygon.polygon = pool_with_bottom
-
+	
+	# instance some garbage
+	randomize()
+	#var number = 5.0 - floor(sqrt(randi()%9))
+	if randi()%2 == 0:
+	#for i in range(number):
+		randomize()
+		var object = randi()%len(objects)
+		var instance = objects[object].instance()
+		instance.position.x = pool[-1].x - 100
+		instance.position.y = pool[-2].y - 40#(1+i)*40
+		$objects.add_child(instance)
+	
