@@ -17,7 +17,7 @@ _global_script_class_icons={
 
 config/name="gj20"
 run/main_scene="res://world.tscn"
-config/icon="res://old/icon.png"
+config/icon="res://assets/block_14_64_64.png"
 
 [input]
 

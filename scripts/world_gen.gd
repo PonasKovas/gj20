@@ -1,8 +1,8 @@
 extends Node2D
 
 var pool = PoolVector2Array([
-	Vector2(-500, 200),
-	Vector2( 500, 200),
+	Vector2(-1000, 200),
+	Vector2( 200, 200),
 ])
 
 var steepness = 0.0
@@ -46,7 +46,7 @@ func add_segment():
 	pool.push_back(new_seg)
 	
 	var pool_with_bottom = pool
-	pool_with_bottom.insert(0, Vector2(-500, 2000))
+	pool_with_bottom.insert(0, Vector2(pool[0].x, 2000))
 	pool_with_bottom.push_back(Vector2(pool[-1].x, 2000))
 	
 	ground_polygon.polygon = pool_with_bottom
