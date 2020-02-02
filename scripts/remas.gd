@@ -45,11 +45,11 @@ func _process(delta):
 	if Input.is_action_pressed("ui_right"):
 		var power = calc_engine_power()
 		rotate_tires(power)
-		self.applied_torque = 1000;
+		self.applied_torque = 5000;
 	elif Input.is_action_pressed("ui_left"):
 		var power = calc_engine_power()
 		rotate_tires(-power)
-		self.applied_torque = -1000;
+		self.applied_torque = -5000;
 	else:
 		rotate_tires(0)
 		self.applied_torque = 0;
@@ -80,7 +80,12 @@ func calc_engine_power():
 	return power
 
 func rotate_tires(power):
+	var tires = []
 	for attached_obj in attached_objects:
 		if attached_obj.type == 0: # tire
-			var wheel = attached_obj.get_node("wheel")
-			wheel.angular_velocity += (power-wheel.angular_velocity)/(200*wheel.mass)
+			tires.push_back(attached_obj)
+	for tire in tires:
+		var wheel = tire.get_node("wheel")
+		var speed = (power-wheel.angular_velocity) \
+				/ 200 * len(tires)
+		wheel.angular_velocity += speed/wheel.mass

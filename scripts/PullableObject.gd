@@ -12,7 +12,7 @@ var mouse_hovering = false
 
 var pullable = true
 
-var glow_material = load("res://glow.tres")
+var glow_material = preload("res://glow.tres")
 var glow_start = 0;
 
 func _ready():

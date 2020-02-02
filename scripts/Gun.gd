@@ -6,7 +6,7 @@ func _process(delta):
 		get_viewport().get_mouse_position() - \
 		position - parent_transform.origin
 	).angle()-parent_transform.get_rotation()
-	if(Input.is_action_just_released("mouseclick")):
+	if Input.is_action_just_pressed("mouseclick"):
 		self.frame=0
 		self.play("Fire")
 

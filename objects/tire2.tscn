@@ -4,7 +4,7 @@
 [ext_resource path="res://scripts/PullableObject.gd" type="Script" id=2]
 [ext_resource path="res://assets/wheel_64.png" type="Texture" id=3]
 
-[sub_resource type="PhysicsMaterial" id=4]
+[sub_resource type="PhysicsMaterial" id=1]
 friction = 0.1
 
 [sub_resource type="PhysicsMaterial" id=2]
@@ -16,7 +16,7 @@ radius = 32.0
 [node name="tire2" type="RigidBody2D"]
 input_pickable = true
 mass = 0.2
-physics_material_override = SubResource( 4 )
+physics_material_override = SubResource( 1 )
 contacts_reported = 20
 contact_monitor = true
 script = ExtResource( 2 )
