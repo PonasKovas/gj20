@@ -19,6 +19,10 @@ config/name="gj20"
 run/main_scene="res://world.tscn"
 config/icon="res://assets/block_14_64_64.png"
 
+[autoload]
+
+background_music="*res://background_music.tscn"
+
 [input]
 
 ui_left={
